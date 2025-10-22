@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Header Sekolah</title>
+  <style>
+    :root{
+      --accent:#0b6efd;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --glass: rgba(211, 31, 31, 0.8);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:#f6f7fb;}
+    .site-header{
+      position:sticky; top:0; z-index:1000;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid #e6e9ef;
+      box-shadow: 0 2px 6px rgba(20,24,40,0.05);
+    }
+    .container{
+      max-width:1100px; margin:0 auto; padding:0 16px;
+      display:flex; align-items:center; gap:16px; height:64px;
+    }
+
+    /* Logo */
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;
+    }
+    .brand .logo{
+      width:44px; height:44px; border-radius:8px; display:inline-grid; place-items:center;
+      font-weight:700; color:#; background:var(--accent);
+    }
+    .brand .school{
+      display:flex; flex-direction:column; line-height:1;
+    }
+    .brand .school .name{font-weight:700; color: #0b6efd; font-size:18px}
+    .brand .school .tag{font-size:14px; color:var(--muted)}
+
+    /* Desktop nav */
+    nav.primary{margin-left:8px; display:flex; gap:8px; align-items:center; flex:1}
+    .nav-links{display:flex; gap:6px; align-items:center}
+    .nav-links a{
+      text-decoration:none; padding:8px 12px; border-radius:8px; color:#111827; font-size:14px;
+    }
+    .nav-links a:hover, .nav-links a:focus{background:#f2f4f8; outline:none}
+
+    /* Search & CTA */
+    .header-actions{display:flex; gap:8px; align-items:center}
+    .search{
+      display:flex; align-items:center; gap:8px; background:#f5f7fb; padding:6px 8px; border-radius:10px;
+    }
+    .search input{
+      border:0; background:transparent; outline:none; font-size:14px; width:160px;
+    }
+    .btn-primary{
+      background:var(--accent); color:white; padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:600;
+      display:inline-block;
+    }
+
+    /* Mobile */
+    .hamburger{
+      display:none; background:transparent; border:0; padding:8px; margin-left:auto; cursor:pointer;
+    }
+
+    /* Responsive rules */
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .search{display:none}
+      .hamburger{display:inline-flex}
+      .container{height:60px}
+    }
+
+    /* Mobile panel */
+    .mobile-panel{
+      display:none; flex-direction:column; gap:8px; padding:12px; border-top:1px solid #eef1f6;
+      background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98));
+    }
+    .mobile-panel a{padding:10px 12px; text-decoration:none; color:#111827; border-radius:8px}
+    .mobile-panel a:hover{background:#f2f4f8}
+    .mobile-panel.show{display:flex}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="#0a54f3ff" class="brand" aria-label="Beranda - Nama Sekolah">
+        <div class="container">
+    <img src="Riau.png" with="200" height="50"/>
+</div>
+        <div class="school">
+          <span class="name">SMAN 4 Bengkalis</span>
+          <span class="tag">Sekolah bermasa</span>
+        </div>
+      </a>
+
+      <nav class="primary" role="navigation" aria-label="Navigasi utama">
+        <div class="nav-links" id="navLinks">
+          <a href="#59f42077">Beranda</a>
+          <a href="#">Profil</a>
+          <a href="#">Informasi</a>
+          <a href="#">Akademik</a>
+          <a href="#">Galeri</a>
+          <a href="#">Kontak</a>
+        </div>
+
+        <div class="header-actions" role="group" aria-label="Aksi header">
+          <div class="search" aria-hidden="false">
+            <svg width="16" height="16" viewBosx="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35" stroke="#d8deebff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="11" cy="11" r="6" stroke="#dce2efff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="search" aria-label="Cari di situs" placeholder="Cari..." />
+          </div>
+
+          <a class="btn-primary" href="#bbc8e8ff" role="button">PPDB</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobilePanel" aria-label="Buka menu">
+          <svg width="240" height="240" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#c6cee0ff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- panel mobile -->
+    <div id="mobilePanel" class="mobile-panel" role="menu" aria-hidden="true">
+      <a href="#" role="menuitem">Beranda</a>
+      <a href="#" role="menuitem">Profil</a>
+      <a href="#" role="menuitem">Informasi</a>
+      <a href="#" role="menuitem">Akademik</a>
+      <a href="#" role="menuitem">Galeri</a>
+      <a href="#" role="menuitem">Kontak</a>
+      <a class="btn-primary" href="#" role="button">PPDB</a>
+    </div>
+  </header>
+
+  <main style="padding:24px; max-width:1100px; margin:0 auto">
+    <h1>SMAN 4 bengkalis</h1>
+    <p>Konten demo di sini. Header sudah sticky dan akan bekerja di desktop & mobile.</p>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    hamburger.addEventListener('click', () => {
+      const showing = mobilePanel.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', showing ? 'true' : 'false');
+      mobilePanel.setAttribute('aria-hidden', showing ? 'false' : 'true');
+      // optional: change icon to X
+      hamburger.innerHTML = showing ? 
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d=\"M6 6l12 12M6 18L18 6\" stroke=\"#111827\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg>'
+        :
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d=\"M4 7h16M4 12h16M4 17h16\" stroke=\"#111827\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg>';
+    });
+  </script>
+</body>
+</html>
